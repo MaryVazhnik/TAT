@@ -6,7 +6,7 @@ namespace DEV_1
     /// <summary>
     /// This class contains a method that works with a string
     /// </summary>
-    class RepeatSequence
+    class Sequence
     {
         /// <summary>
         /// Enter point. Args is message in command line
@@ -21,18 +21,19 @@ namespace DEV_1
             {
                 if (str[n] == str[n + 1])
                 {
-                    count++;
+                   count++;
                 }
                 else if (count > maxcount)
                 {
-                    maxcount = count;
-                    count = 1;
+                   maxcount = count;
+                   count = 1;
                 }    
             }
             if (count > maxcount)
-                maxcount = count;
+            {
+               maxcount = count;
+            }
             Console.WriteLine("Amount: " + maxcount);
-            Console.ReadLine();
         }
     }
 }
