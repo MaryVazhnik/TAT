@@ -4,21 +4,21 @@ using System.Text;
 namespace DEV_2
 {
     /// <summary>
-    ///Class for deleting all odd symbols 
+    ///Class creates a new string from the previous
     /// </summary>
-    class Selection
+    class SequenceBuilder
     {
         /// <summary>
         /// Entry Point.
         /// </summary>
         static void Main(string[] args)
         {
+           Console.WriteLine("Write a string");
+           String s = Console.ReadLine(); 
            StringBuilder sb = new StringBuilder();
-           Console.WriteLine("Write line");
-           sb.Append(Console.ReadLine());
-           for (int i = 0; i < sb.Length; i++)
+           for (int i = 0; i < s.Length; i+=2)
            {
-              sb = sb.Remove(i, 1);
+              sb.Append(s[i]);
            }
            Console.WriteLine("Symbols with even indices: "+sb);
         }
