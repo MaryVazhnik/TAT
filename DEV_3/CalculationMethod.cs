@@ -35,7 +35,7 @@ namespace DEV_3
             /// Function, replaces letters with numbers and vice versa
             /// </summary>
             /// <param name="worknumber">Number to work over</param>
-            /// <param name="otk">In which direction is the action performed with respect to the decimal number system</param>
+            /// <param name="partytoactionplace">In which direction is the action performed with respect to the decimal number system</param>
             /// <returns>Returns a letter if the number matches a letter and vice versa, otherwise the number</returns>
             string newCh(string worknumber, string partytoactionplace)
             {
