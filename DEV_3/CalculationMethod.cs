@@ -4,7 +4,10 @@ using System.Collections;
 
 namespace DEV_3
 {
-        public class CalculationMethod
+    /// <summary>
+    /// Translates from an active number system to another number system
+    /// </summary>
+         class CalculationMethod
         {
             string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             /// <summary>
@@ -25,44 +28,48 @@ namespace DEV_3
                     numTemp.Add(num - chast * Convert.ToInt32(sys));
                     num = chast;
                 }
-                int j;
+                int j = 0;
                 for (j = numTemp.Count - 1; j >= 0; j--)
-                    newNum += newCh(numTemp[j].ToString(), "to");
+                {
+                    newNum += newChast(numTemp[j].ToString(), "to");
+                }
                 Console.WriteLine(newNum);
                 return newNum;
             }
             /// <summary>
             /// Function, replaces letters with numbers and vice versa
             /// </summary>
-            /// <param name="worknumber">Number to work over</param>
+            /// <param name="convertednumber">Number to work over</param>
             /// <param name="partytoactionplace">In which direction is the action performed with respect to the decimal number system</param>
             /// <returns>Returns a letter if the number matches a letter and vice versa, otherwise the number</returns>
-            string newCh(string worknumber, string partytoactionplace)
+            string newChast(string convertednumber, string partytoactionplace)
             {
-                string line = String.Empty;
+                StringBuilder direction = new StringBuilder();
                 if (partytoactionplace == "to")
                 {
-                    if (Convert.ToInt32(worknumber) > 10)
+                    if (Convert.ToInt32(convertednumber) >= 10)
                     {
-                        line += letters.Substring(Convert.ToInt32(worknumber) - 10, 1);
+                        letters = letters.Substring(Convert.ToInt32(convertednumber) - 10, 1);
+                        direction = direction.Append(letters);
                     }
                     else
                     {
-                        line += worknumber;
+                        direction = direction.Append(convertednumber);
                     }
                 }
                 else if (partytoactionplace == "from")
                 {
-                    if (letters.IndexOf(worknumber) == -1)
+                    if (letters.IndexOf(convertednumber) == -1)
                     {
-                        line += worknumber;
+                        direction = direction.Append(convertednumber);
                     }
                     else
                     {
-                        line += (letters.IndexOf(worknumber) + 10).ToString();
+                        letters = (letters.IndexOf(convertednumber) + 10).ToString();
+                        direction = direction.Append(letters);
                     }
                 }
-                return line;
+                return direction.ToString();
             }
         }
     }
